@@ -40,6 +40,10 @@ def index():
     return render_template('index.html', title="Movie Search")
 
 
+@app.route('/movie-category/<id>', method=['GET', 'POST'])
+def movie_cat(id):
+    pass
+
 @app.route('/movie/<id>', method=['GET', 'POST'])
 def select_movie(id):
     """ Displays movies Details and Reviews
