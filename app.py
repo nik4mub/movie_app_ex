@@ -40,6 +40,10 @@ def results():
 def movie_cat(movie):
     pass
 
+@app.route('/actors/<id>', method=['GET', 'POST'])
+def actors(id):
+    pass
+
 @app.route('/movie/<id>', method=['GET', 'POST'])
 def results():
     """ Displays movie search Movie results
