@@ -37,7 +37,7 @@ def results():
     pass
 
 @app.route('/movie-category/<id>', method=['GET', 'POST'])
-def movie_cat(id):
+def movie_cat(movie):
     pass
 
 @app.route('/movie/<id>', method=['GET', 'POST'])
