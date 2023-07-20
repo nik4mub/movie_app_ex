@@ -45,7 +45,7 @@ def movie_cat(id):
     pass
 
 @app.route('/actors/<id>', method=['GET', 'POST'])
-def movie_cat(id):
+def actors(id):
     pass
 
 @app.route('/movie/<id>', method=['GET', 'POST'])
