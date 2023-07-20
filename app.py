@@ -36,7 +36,11 @@ def index():
 def results():
     pass
 
-@app.route('/results', methods=['GET'])
+@app.route('/movie-category/<id>', method=['GET', 'POST'])
+def movie_cat(movie):
+    pass
+
+@app.route('/movie/<id>', method=['GET', 'POST'])
 def results():
     """ Displays movie search Movie results
     """
@@ -54,25 +58,6 @@ def results():
         return render_template('index.html', title="Movie Search", subtitle="Movie Search Results", results=movie_results)
 
     return render_template('index.html', title="Movie Search")
-
-# @app.route('/', methods=['GET', 'POST'])
-# def index():
-#     """ Displays movie search engine and movie results
-#     """
-#     #get data from search
-#     movie_search = request.form.get('search')
-#     print(request.form)
-
-#     #return movie results
-#     # todo: handle if no movies found
-#     if movie_search and request.method == 'POST':
-        
-#         #print(movie_search)
-#         movie_results = get_movies(movie_search)
-#         ##print(movie_results)
-#         return render_template('index.html', title="Movie Search", subtitle="Movie Search Results", results=movie_results)
-
-#     return render_template('index.html', title="Movie Search")
 
 
 @app.route('/movie/<id>', methods=['GET', 'POST'])
