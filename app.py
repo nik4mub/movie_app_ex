@@ -20,6 +20,7 @@ proxied = FlaskBehindProxy(app)  ## needed for Codio
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db’
 db = SQLAlchemy(app)
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     """ Displays movie search engine and movie results
@@ -38,6 +39,48 @@ def index():
         return render_template('index.html', title="Movie Search", subtitle="Movie Search Results", results=movie_results)
 
     return render_template('index.html', title="Movie Search")
+
+@app.route('/results', methods=['GET'])
+def results():
+    pass
+
+@app.route('/results', methods=['GET'])
+def results():
+    """ Displays movie search Movie results
+    """
+    #get data from search
+    movie_search = request.args.get('search')
+    print(request.args)
+
+    #return movie results
+    # todo: handle if no movies found
+    if movie_search and request.method == 'POST':
+        
+        #print(movie_search)
+        movie_results = get_movies(movie_search)
+        ##print(movie_results)
+        return render_template('index.html', title="Movie Search", subtitle="Movie Search Results", results=movie_results)
+
+    return render_template('index.html', title="Movie Search")
+
+# @app.route('/', methods=['GET', 'POST'])
+# def index():
+#     """ Displays movie search engine and movie results
+#     """
+#     #get data from search
+#     movie_search = request.form.get('search')
+#     print(request.form)
+
+#     #return movie results
+#     # todo: handle if no movies found
+#     if movie_search and request.method == 'POST':
+        
+#         #print(movie_search)
+#         movie_results = get_movies(movie_search)
+#         ##print(movie_results)
+#         return render_template('index.html', title="Movie Search", subtitle="Movie Search Results", results=movie_results)
+
+#     return render_template('index.html', title="Movie Search")
 
 
 @app.route('/movie/<id>', method=['GET', 'POST'])
