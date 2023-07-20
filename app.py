@@ -44,6 +44,10 @@ def index():
 def movie_cat(id):
     pass
 
+@app.route('/actors/<id>', method=['GET', 'POST'])
+def movie_cat(id):
+    pass
+
 @app.route('/movie/<id>', method=['GET', 'POST'])
 def select_movie(id):
     """ Displays movies Details and Reviews
